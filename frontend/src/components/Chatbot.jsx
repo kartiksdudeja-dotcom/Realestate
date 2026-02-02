@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import "./Chatbot.css";
 
 function Chatbot() {
@@ -35,13 +35,13 @@ function Chatbot() {
       "Thank you for your interest in NORA at Life Republic! For detailed information, please call us at +91 98765 43210 or fill out our contact form.",
   };
 
+  const scrollToBottom = useCallback(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  }, [messages, scrollToBottom]);
 
   const handleSend = (text = inputValue) => {
     if (!text.trim()) return;

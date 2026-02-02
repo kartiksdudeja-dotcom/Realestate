@@ -31,7 +31,7 @@ function Contact() {
         text: "Thank you! We will contact you soon.",
       });
       setEnquiryForm({ name: "", email: "", phone: "", message: "" });
-    } catch (error) {
+    } catch {
       setMessage({
         type: "error",
         text: "Something went wrong. Please try again.",
@@ -57,7 +57,7 @@ function Contact() {
         preferred_date: "",
         preferred_time: "",
       });
-    } catch (error) {
+    } catch {
       setMessage({
         type: "error",
         text: "Something went wrong. Please try again.",
@@ -77,7 +77,7 @@ function Contact() {
         text: "Successfully subscribed to newsletter!",
       });
       setNewsletterEmail("");
-    } catch (error) {
+    } catch {
       setMessage({
         type: "error",
         text: "Something went wrong. Please try again.",

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './AdminDashboard.css';
 
 function AdminDashboard({ admin, onLogout }) {
@@ -13,9 +13,9 @@ function AdminDashboard({ admin, onLogout }) {
 
   useEffect(() => {
     fetchAllData();
-  }, []);
+  }, [fetchAllData]);
 
-  const fetchAllData = async () => {
+  const fetchAllData = useCallback(async () => {
     setLoading(true);
     try {
       const [statsRes, enquiriesRes, visitsRes, subsRes] = await Promise.all([
@@ -39,7 +39,7 @@ function AdminDashboard({ admin, onLogout }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_URL]);
 
   const updateEnquiryStatus = async (id, status, notes = '') => {
     try {

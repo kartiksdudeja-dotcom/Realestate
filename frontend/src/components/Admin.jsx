@@ -1,23 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
 
 function Admin() {
-  const [admin, setAdmin] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Check if admin is already logged in
+  // Initialize admin from localStorage
+  const [admin, setAdmin] = useState(() => {
     const storedAdmin = localStorage.getItem('adminToken');
     if (storedAdmin) {
       try {
-        setAdmin(JSON.parse(storedAdmin));
-      } catch (e) {
+        return JSON.parse(storedAdmin);
+      } catch {
         localStorage.removeItem('adminToken');
+        return null;
       }
     }
-    setLoading(false);
-  }, []);
+    return null;
+  });
 
   const handleLogin = (adminData) => {
     setAdmin(adminData);
@@ -27,20 +25,6 @@ function Admin() {
     setAdmin(null);
   };
 
-  if (loading) {
-    return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh',
-        background: '#1a1a2e',
-        color: 'white'
-      }}>
-        Loading...
-      </div>
-    );
-  }
 
   return admin ? (
     <AdminDashboard admin={admin} onLogout={handleLogout} />
