@@ -1,0 +1,120 @@
+.amenities {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+}
+
+.amenities .section-tag {
+  background: rgba(201, 162, 39, 0.2);
+}
+
+.amenities .section-title {
+  color: #fff;
+}
+
+.amenities .section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.amenities-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.amenity-item:hover {
+  background: rgba(201, 162, 39, 0.15);
+  transform: translateY(-5px);
+}
+
+.amenity-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #c9a227, #d4af37);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amenity-icon i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.amenity-item span {
+  font-size: 0.9rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lifestyle-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.lifestyle-image {
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.lifestyle-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.lifestyle-image:hover img {
+  transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+  .amenities-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .amenities-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .lifestyle-images {
+    grid-template-columns: 1fr;
+  }
+
+  .lifestyle-image img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .amenity-item {
+    padding: 20px 10px;
+  }
+}
