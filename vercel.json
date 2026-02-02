@@ -2,6 +2,6 @@
   "buildCommand": "npm install --prefix frontend && npm run build --prefix frontend",
   "outputDirectory": "frontend/dist",
   "env": {
-    "VITE_API_URL": "@YOUR_RENDER_API_URL"
+    "VITE_API_URL": "https://realestate-xbi0.onrender.com"
   }
 }
